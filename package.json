@@ -1,0 +1,31 @@
+{
+  "name": "package.json",
+  "version": "1.0.0",
+  "description": "backend api",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikafeng/18-SocialMedia-API.git"
+  },
+  "keywords": [
+    "mongoose",
+    "nosql"
+  ],
+  "author": "mika",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mikafeng/18-SocialMedia-API/issues"
+  },
+  "homepage": "https://github.com/mikafeng/18-SocialMedia-API#readme",
+  "dependencies": {
+    "mongoose": "^6.9.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
