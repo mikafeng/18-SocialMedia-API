@@ -20,13 +20,13 @@ router
     .put(updateUser)
     .delete(deleteUser);
 
-//Friends
 
 // add friend
-router.route(':/userId/friends').post(addFriend);
+router.route(':/userId/friends')
+    .post(addFriend);
 
 // delete friend
-    router.route(':/userId/friends/:friendsId')
+router.route(':/userId/friends/:friendsId')
     .delete(removeFriend);
 
 
