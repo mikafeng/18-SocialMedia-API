@@ -19,8 +19,11 @@ const reactionSchema = new Schema(
             required: true
         },
          createdAt:{
-            
-        }
-      
-    }
+            type: Date,
+            default: Date.now,
+        },
+    },
 );
+
+
+module.exports = reactionSchema;

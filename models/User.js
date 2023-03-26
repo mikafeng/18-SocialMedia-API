@@ -15,7 +15,7 @@ const userSchema = new Schema(
         match:
     },
         thoughts: [thoughtSchema],
-        friends: [friendSchema]
+        friends: [friendSchema],
     },
     {
     toJSON: {
@@ -25,11 +25,12 @@ const userSchema = new Schema(
     }
 );
 
-        //virtual property 'friendCount' that gets amount of user's friends
-        userSchema.virtual('friendCount')
-        .get(function () {
-            return this.friends.length;
-        })
+
+//virtual property 'friendCount' that gets amount of user's friends
+userSchema.virtual('friendCount')
+.get(function () {
+    return this.friends.length;
+})
 
 const User = model('user', userSchema);
 
