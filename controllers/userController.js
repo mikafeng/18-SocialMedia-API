@@ -10,7 +10,7 @@ module.exports = {
 
     getSingleUser(req, res){
         User.findOne({_id: req.params.userId})
-        .select()
+        .select('-__v')
         .then((user) =>
         !user
         ? res.status(404).json({message: 'No user with that id'})
@@ -25,7 +25,10 @@ module.exports = {
         .catch((err) => res.status(500).json(err));
 },
     updateUser(req, res) {
-        User.findOneAndUpdate },
+        User.findOneAndUpdate(req.body)
+        .then((user) => res.json(user))
+        .catch((err) => res.status(500).json(err))    
+    },
 
 
     // deleteUser(req, res) {

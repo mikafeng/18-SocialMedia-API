@@ -11,18 +11,20 @@ const thoughtSchema = new Schema(
         },
         createdAt: {
             type: Date,
-            default: Date.now
+            default: Date.now(),
         },
-        username:{
-            type: String,
-            required: true,
-        },
+        username:[
+            {
+            type: Schema.Types.ObjectId,
+            ref: 'User',
+            },
+        ],
         reactions: [
             {
                 type: Schema.Types.ObjectId, 
-                ref: 'reaction',
+                ref: 'Reaction',
             }
-        ]
+        ],
     },
     {
         toJSON: {
