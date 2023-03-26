@@ -1,30 +1,27 @@
 {
-  "name": "package.json",
+  "name": "18-SocialMedia-API",
   "version": "1.0.0",
-  "description": "backend api",
+  "description": "Mongoose back-end api",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server",
+    "dev": "nodemon server",
+    "seed": "node util/seed"
   },
-  "type": "module",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mikafeng/18-SocialMedia-API.git"
-  },
-  "keywords": [
-    "mongoose",
-    "nosql"
-  ],
+
   "author": "mika",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mikafeng/18-SocialMedia-API/issues"
   },
+
   "homepage": "https://github.com/mikafeng/18-SocialMedia-API#readme",
   "dependencies": {
+    "express": "^4.18.2",
     "mongoose": "^6.9.2"
   },
+  
   "devDependencies": {
     "nodemon": "^2.0.22"
   }

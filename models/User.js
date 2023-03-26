@@ -11,11 +11,10 @@ const userSchema = new Schema(
     email: {
         type: String,
         required: true,
-        unique: true,
-        match:
+        unique: true
     },
-        thoughts: [thoughtSchema],
-        friends: [friendSchema],
+        // thoughts: [thoughtSchema],
+        // friends: [friendSchema],
     },
     {
     toJSON: {
