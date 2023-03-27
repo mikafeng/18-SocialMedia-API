@@ -32,18 +32,18 @@ module.exports = {
 
 
     deleteUser(req, res) {
-    //     User.findOneAndRemove({_id: req.params.userId})
-    //     .then((user) => 
-    //     !user
-    //     ? res.status(404).json({message: 'No user with that id.'})
-    //     : 
-    //     )
-    //     .then((thoughts) =>
-    //     !thoughts
-    //     ?
-    //     :
-    //     )
-    //     .catch((err) => res.status(500).json(err));
+        // User.findOneAndRemove({_id: req.params.userId})
+        // .then((user) => 
+        // !user
+        // ? res.status(404).json({message: 'No user with that id.'})
+        // : 
+        // )
+        // .then((thoughts) =>
+        // !thoughts
+        // ?
+        // :
+        // )
+        // .catch((err) => res.status(500).json(err));
         
     },
 
@@ -64,5 +64,17 @@ module.exports = {
         .catch((err) => res.status(500).json(err));
     },
 
-    removeFriend(req, res) {},
+    removeFriend(req, res) {
+        User.findOneAndUpdate(
+            {_id: req.params.userId},
+            {$pull: {friends: {friendId: req.params.friendId}}},
+            {runValidators: true, new: true}
+        )
+        .then((user) =>
+        !application
+        ? res.status(404).json({message: 'No user with this id!'})
+        : res.json(user)
+        )
+        .catch((err) => res.status(500).json(err));
+    },
 };
