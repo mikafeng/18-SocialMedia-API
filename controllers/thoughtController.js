@@ -36,6 +36,49 @@ module.exports = {
         res.status(500).json(err)
         });
     },
-    deleteThought(){},
+    deleteThought(req, res){
+        Thought.findOneAndRemove({_id: req.params.thoughtId})
+        .then((thought) =>
+        !thought 
+        ? res.status(404).json({message: 'No thought with that id!'})
+        : User.findOneAndUpdate(
+            {thoughts: req.params.thoughtId},
+            {$pull: {thought: req.params.thoughtId}},
+            {new:true}
+            )
+        )       
+        .then((user) =>
+        !user
+        ? res.status(404).json({message: 'Thought deleted but no user with this id!'})
+        : res.json({message: 'Video succesfully deleted!'})
+        )
+        .catch((err) => res.status(500).json(err))
+    },
+    addThoughtReaction(req, res){
+        Thought.findOneAndUpdate(
+            {_id: req.params.thoughtId},
+            {$addToSet: {responses: req.body}},
+            {runValidators: true, new: ture}
+        )
+        .then((thought) =>
+        !thought
+        ? res.status(404).json({message: 'No thought with that id!'})
+        : res.json(thought)
+        )
+        .catch((err)=> res.status(500).json(err));
+    },
+    removeThoughtReaction(req, res){
+        Thought.findOneAndUpdate(
+            {_id: req.params.thoughtId},
+            {$pull: { reactions: {reactionId: req.params.reactionId}}},
+            {runValidators: true, new: true}
+        )
+        .then((thought)=>
+        !thought
+        ? res.status(404).json({message: 'No thought with that id!'})
+        : res.json(thought)
+        )
+        .catch((err) => res.status(500).json(err));
+    },
 }
 
