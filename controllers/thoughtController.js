@@ -21,7 +21,7 @@ module.exports = {
         Thought.create(req.body)
         .then((thought)=>{
         return User.findOneAndUpdate(
-            {username: req.body.username},
+            {_id: req.body.userId},
             {$addToSet: {thoughts: thought._id}},
             {new: true}
         );
@@ -71,7 +71,7 @@ module.exports = {
         )
         .catch((err) => res.status(500).json(err))
     },
-    addThoughtReaction(req, res){
+    addReaction(req, res){
         Thought.findOneAndUpdate(
             {_id: req.params.thoughtId},
             {$addToSet: {responses: req.body}},
@@ -84,7 +84,7 @@ module.exports = {
         )
         .catch((err)=> res.status(500).json(err));
     },
-    removeThoughtReaction(req, res){
+    removeReaction(req, res){
         Thought.findOneAndUpdate(
             {_id: req.params.thoughtId},
             {$pull: { reactions: {reactionId: req.params.reactionId}}},

@@ -23,22 +23,19 @@ const thoughtSchema = new Schema(
     {
         toJSON: {
             virtuals: true,
-            getters: true,
         },
 
         id: false,
     }
 );
 
+
+
 thoughtSchema.virtual('reactionCount')
 .get(function() {
     return this.reactions.length;
 });
 
-thoughtSchema.virtual('getTimestamp')
-.get(function () {
-    return `created at: ${this.createdAt}`
-});
 
 const Thought = model('thought', thoughtSchema);
 
