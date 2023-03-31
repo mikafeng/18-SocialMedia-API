@@ -19,7 +19,7 @@ module.exports = {
 
     createThought(req, res){
         Thought.create(req.body)
-        .then((thought)=>{
+        .then((thought)=> {
         return User.findOneAndUpdate(
             {_id: req.body.userId},
             {$addToSet: {thoughts: thought._id}},
@@ -28,7 +28,7 @@ module.exports = {
         })
         .then((user)=> 
         !user
-        ? response.status(404).json({message: 'Thought created, but no user with that id!'})
+        ? res.status(404).json({message: 'Thought created, but no user with that id!'})
         : res.json(`Thought created by ${user}`)
         )
         .catch((err) => {
@@ -74,8 +74,8 @@ module.exports = {
     addReaction(req, res){
         Thought.findOneAndUpdate(
             {_id: req.params.thoughtId},
-            {$addToSet: {responses: req.body}},
-            {runValidators: true, new: ture}
+            {$addToSet: {reactions: req.body}},
+            {runValidators: true, new: true}
         )
         .then((thought) =>
         !thought

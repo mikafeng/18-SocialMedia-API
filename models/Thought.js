@@ -17,6 +17,9 @@ const thoughtSchema = new Schema(
                 moment(createdAtVal).format("MMM DD, YYYY [at] hh:mm a")
             //need getter method to format timestamp on query
         },
+       userId: {
+            type:String
+       },
 
         reactions: [Reaction]
     },
@@ -32,7 +35,8 @@ const thoughtSchema = new Schema(
 
 
 
-thoughtSchema.virtual('reactionCount')
+thoughtSchema
+.virtual('getReactions')
 .get(function() {
     return this.reactions.length;
 });

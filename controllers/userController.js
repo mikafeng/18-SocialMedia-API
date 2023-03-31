@@ -1,7 +1,6 @@
-const {User} = require('../models/User');
+const User = require('../models/User');
 
 module.exports = {
-    //get all users
     getUsers(req, res){
         User.find()
         .then((users) => res.json(users))
