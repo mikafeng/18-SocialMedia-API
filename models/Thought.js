@@ -17,10 +17,7 @@ const thoughtSchema = new Schema(
                 moment(createdAtVal).format("MMM DD, YYYY [at] hh:mm a")
             //need getter method to format timestamp on query
         },
-        username: {
-            type: String,
-            required: true
-        },
+
         reactions: [Reaction]
     },
     {

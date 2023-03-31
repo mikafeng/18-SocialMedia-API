@@ -14,8 +14,13 @@ connection.once('open', async () => {
 
     for (let i = 0; i < 20; i++) {
         const username = getRandomName();
+        const email = `${username}@bootcamp.com`;
 
-        users.push({ username });
+        users.push({ 
+            username,
+            email,
+            friends: Math.floor(Math.random() * (30 - 18 + 1) + 18)
+        });
     }
 
     await User.collection.insertMany(users);
