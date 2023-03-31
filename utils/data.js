@@ -1,3 +1,5 @@
+const number = require("2/number");
+
 const names = [
     'Aaran',
     'Aaren',
@@ -79,13 +81,15 @@ const possibleReactions = [
     'Reply: The side effects of in app purchases on digital marketplaces',
 ];
 
+
 const users = [];
 
 // Get a random item given an array
 const getRandomArrItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
+const getRandomNumber = () => Math.floor(Math.random() * (30 - 18 + 1) + 18);
 // Gets a random full name
 const getRandomName = () =>
-    `${getRandomArrItem(names)}`;
+    `${getRandomArrItem(names)} ${getRandomNumber()}`;
 
 // Function to generate random thoughts that we can add to the database. Includes thought responses.
 const getRandomThoughts = (int) => {
