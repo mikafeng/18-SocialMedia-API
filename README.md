@@ -1,8 +1,11 @@
 # SocialMedia-API
 A backend API using NoSQL for a social media startup.
+Users can share their thoughts, react to friends' thoughts and create a friend list.
 
 ## Usage
-Users can share their thoughts, react to friends' thoughts and create a friend list.
+
+This application uses Express.js to route User and Thought Models.
+The database used is MongoDB and Mongoose ODM. User has references to Friends and Thoughts while Thoughts has a subschema of comments/reactions.
 
 ## Installation
 
