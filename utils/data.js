@@ -87,6 +87,7 @@ const users = [];
 // Get a random item given an array
 const getRandomArrItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
 const getRandomNumber = () => Math.floor(Math.random() * (30 - 18 + 1) + 18);
+
 // Gets a random full name
 const getRandomName = () =>
     `${getRandomArrItem(names)} ${getRandomNumber()}`;
@@ -102,6 +103,17 @@ const getRandomThoughts = (int) => {
     }
     return results;
 };
+
+const getRandomFriends = (int) =>{
+    let results = [];
+    for (let i=0; i<int; i++) {
+        results.push({
+            _id: `${getRandomNumber()}`,
+            username: `${getRandomName()}`,
+        });
+    }
+    return results;
+    };
 
 // Create the responses that will be added to each video
 const getThoughtReactions = (int) => {
@@ -119,7 +131,7 @@ const getThoughtReactions = (int) => {
 };
 
 // Export the functions for use in seed.js
-module.exports = { getRandomName, getRandomThoughts, getRandomThoughts };
+module.exports = { getRandomName, getRandomThoughts, getRandomThoughts, getRandomFriends };
 
 
 
