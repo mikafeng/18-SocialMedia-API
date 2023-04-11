@@ -6,7 +6,7 @@ Users can share their thoughts, react to friends' thoughts and create a friend l
 
 ## Installation
 
-git clone the repository code to your local environment.
+git clone the repository code to your local environment. <br/>
 `npm i` to install dependencies <br/>
 `npm run seed` to seed data (data can easily be changed in utils folder) <br/>
 `npm start` to start application. <br/>
