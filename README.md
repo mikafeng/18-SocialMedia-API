@@ -7,11 +7,11 @@ Users can share their thoughts, react to friends' thoughts and create a friend l
 ## Installation
 
 git clone the repository code to your local environment.
-`npm i` to install dependencies
-`npm run seed` to seed data (data can easily be changed in utils folder)
-`npm start` to start application.
+`npm i` to install dependencies <br/>
+`npm run seed` to seed data (data can easily be changed in utils folder) <br/>
+`npm start` to start application. <br/>
 
-Test routes using an API platform such as Postman or Insomnia.
+Test routes using an API platform such as Postman or Insomnia. <br/>
 Use backend for your future applications.
 
 ## Dependencies
